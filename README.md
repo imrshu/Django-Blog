@@ -15,6 +15,7 @@
 * Now create a super user using `python manage.py createsuperuser`
 * Migrate the models using `python manage.py makemigrations`
 * Now again migrate `python manage.py migrate`
+* Now create a folder named as `media` in the root directory of project
 * Finally run server up by using `python manage.py runserver`
 
 ### Note
