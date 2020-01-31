@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Search a Article
+{% endblock %}
+
+{% block header %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <form action="{% url 'article:showarticles' %}">
+                <div class="form-group">
+                    <label for="username">Search an Article by Username</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Enter the a username">
+                </div>
+                <button class="btn btn-primary">Search</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

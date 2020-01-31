@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ request.user }}|Dashboard
+{% endblock %}
+
+{% block header %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        {% if articles %}
+            {% for article in articles %}
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <b>{{ article.name }}</b>
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                                <p>{{ article.description }}</p>
+                                <img src="{{ article.image.url }}" class="img-fluid" alt="{{ article.name }}">
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

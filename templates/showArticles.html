@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Articles
+{% endblock %}
+
+{% block header %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+    {% if messages %}
+        <div class="row">
+            {% for message in messages %}
+                <div class="col-md-12">
+                    <div class="alert alert-danger" role="alert">
+                        {{ message }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="row">
+        {% if articles %}
+            {% for article in articles %}
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <b>{{ article.name }}</b> Posted By: {{ article.user.username }}
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                                <p>{{ article.description }}</p>
+                                <img class="img-fluid" src="{{ article.image.url }}" alt="{{ article.name }}">
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            {% else %}
+                <div class="col-md-12">
+                    <div class="alert alert-danger" role="alert">
+                        User has are no articles.
+                    </div>
+                </div>
+
+        {% endif %}
+    </div>
+
+{% endblock %}

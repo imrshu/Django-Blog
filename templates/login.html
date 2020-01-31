@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    ATG|Login
+{% endblock %}
+
+
+{% block content %}
+
+    {% if messages %}
+        <div class="row">
+        {% for message in messages %}
+            <div class="col-md-12">
+                <div class="alert alert-danger" role="alert">
+                    {{ message }}
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    {% endif %}
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-primary">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

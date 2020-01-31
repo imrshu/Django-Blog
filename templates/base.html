@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .errorlist li {
+            color: #13597b;
+            display: block;
+            font-size: 1.2em;
+            text-align: center;
+            background-color: rgba(0, 0, 0, .075);
+        }
+    </style>
+</head>
+<body>
+
+{% block header %}
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/">ATG BLOGS</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        {% if request.user.is_authenticated %}
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{% url 'article:logout' %}">Logout</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{% url 'article:dashboard' %}">Dashboard</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{% url 'article:postarticle' %}">Create Article</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{% url 'article:login' %}">Login</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{% url 'article:signup' %}">SignUp</a>
+                            </li>
+                        {% endif %}
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'article:searcharticle' %}">Search</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+{% endblock %}
+
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+
+<script>
+    document.querySelector('#id_username').className = 'form-control';
+    document.querySelector('#id_password1').className = 'form-control';
+    document.querySelector('#id_password2').className = 'form-control';
+    for (let s of document.querySelectorAll('span')) {
+        s.className = 'form-text text-muted';
+    }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

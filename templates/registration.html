@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    ATG|Registration
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-primary">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
