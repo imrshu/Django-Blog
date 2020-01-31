@@ -16,3 +16,7 @@
 * Migrate the models using `python manage.py makemigrations`
 * Now again migrate `python manage.py migrate`
 * Finally run server up by using `python manage.py runserver`
+
+### Note
+* For captcha to run properly users should have some libraries installed on their system
+* Run this command `sudo apt-get -y install libz-dev libjpeg-dev libfreetype6-dev python-dev`
