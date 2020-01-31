@@ -11,8 +11,8 @@
 * Navigate to project directory and make an virtualenv using `python3 -m venv <virtual_env_name>`
 * Activate the virtualenv using `source <virtual_env_name>/bin/activate`
 * Now install dependencies using `pip install -r requirements.txt`
-* Now create a super user using `python manage.py createsuperuser`
 * Now `python manage.py migrate`
+* Now create a super user using `python manage.py createsuperuser`
 * Migrate the models using `python manage.py makemigrations`
 * Now again migrate `python manage.py migrate`
 * Finally run server up by using `python manage.py runserver`
